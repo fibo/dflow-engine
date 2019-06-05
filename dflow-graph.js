@@ -1,5 +1,5 @@
 class DflowGraph {
-  constructor (nodes = [], pipes = [], parentGraph = null) {
+  constructor ({ nodes = [], pipes = [] } = {}, parentGraph = null) {
     this.nodes = nodes
     this.pipes = pipes
     this.parentGraph = parentGraph
@@ -43,7 +43,7 @@ class DflowGraph {
   }
 
   createTask ({ inputs = [], body }) {
-    // TODO handle double quote escape, in order to have a JSON serialazible graph.
+    // TODO handle double quote escape in body content, in order to have a JSON serialazible graph.
     const id = this.generateId()
 
     const run = Function.apply(Function.prototype, inputs.map(({ name }) => name).concat(body))
@@ -132,8 +132,14 @@ class DflowGraph {
           this.nodes[index].outputs[0].value = value
         } catch (error) {
           // TODO every node, at least in the view, should have an output by default (other than return)
-          // that is true is successfull, or contains an array of errors if something unexpected happened.
+          // that is true is successfull, then maybe another optionally visible outeput should contain
+          // an array of errors if something unexpected happened.
           this.nodes[index].errors = [ error ]
+
+          // TODO every node should have also an input by default. Put default input and output to the right
+          // Default output is called success and it is true if node executed without errors, otherwise it is false.
+          // Default input is called enabled and if true it runs the node.
+          // This is useful to run nodes in series or to run a node if some other node has no error.
         }
       }
 

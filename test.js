@@ -1,6 +1,11 @@
 const DflowGraph = require('./dflow-graph')
 
-const graph = new DflowGraph()
+const helloGraph = new DflowGraph()
 
-graph.createTask({ body: "console.log('hello world')" })
-graph.run()
+helloGraph.createTask({ body: "console.log('hello world')" })
+helloGraph.run()
+
+helloGraph.createTask({ body: "console.log('I am a copy')" })
+
+const copyOfHelloGraph = new DflowGraph(helloGraph)
+copyOfHelloGraph.run()
