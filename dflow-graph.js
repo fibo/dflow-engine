@@ -61,7 +61,7 @@ class DflowGraph {
   }
 
   generateId () {
-    return Math.random().toString(36).replace(/[^a-z]+/g, '')
+    return Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 4)
   }
 
   run () {
