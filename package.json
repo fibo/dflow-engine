@@ -1,0 +1,30 @@
+{
+  "name": "dflow-engine",
+  "version": "0.0.0",
+  "private": true,
+  "description": "is a minimal Dataflow programming engine",
+  "type": "module",
+  "main": "dflow-engine.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fibo/dflow-engine.git"
+  },
+  "keywords": [
+    "minimal",
+    "dataflow",
+    "programming",
+    "engine"
+  ],
+  "author": {
+    "name": "Gianluca Casati",
+    "url": "http://g14n.info"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fibo/dflow-engine/issues"
+  },
+  "homepage": "https://dflow.it"
+}

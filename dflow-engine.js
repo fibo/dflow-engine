@@ -1,4 +1,4 @@
-class DflowGraph {
+export class DflowGraph {
   constructor ({ nodes = [], pipes = [] } = {}, parentGraph = null) {
     this.nodes = nodes
     this.pipes = pipes
@@ -150,5 +150,3 @@ class DflowGraph {
     })
   }
 }
-
-module.exports = exports.default = DflowGraph

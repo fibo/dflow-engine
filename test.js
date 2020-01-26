@@ -1,4 +1,4 @@
-const DflowGraph = require('./dflow-graph')
+import { DflowGraph } from './dflow-engine.js'
 
 const helloGraph = new DflowGraph()
 
